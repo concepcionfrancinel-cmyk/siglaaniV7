@@ -1,0 +1,6 @@
+flask>=3.0
+flask-cors>=4.0
+opencv-python>=4.9        # use opencv-python-headless on the Pi
+numpy>=1.26
+# tflite-runtime>=2.14    # uncomment on Pi when model is ready
+# tensorflow>=2.14        # or this on dev machine for TFLite
