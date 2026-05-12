@@ -42,17 +42,17 @@ try:
     from gpiozero import DigitalOutputDevice, DigitalInputDevice, DistanceSensor
     
     # Active Low logic handled automatically by active_high=False
-    actuator_relay = DigitalOutputDevice(17, active_high=False) 
+    actuator_relay = DigitalOutputDevice(27, active_high=False) 
     
     # FAN STARTS ON IMMEDIATELY and stays on to clear methane
-    fan_relay      = DigitalOutputDevice(27, active_high=False, initial_value=True) 
+    fan_relay      = DigitalOutputDevice(17, active_high=False, initial_value=True) 
     
     led_relay      = DigitalOutputDevice(26, active_high=False) 
     
     # Swapped to MQ-2 for methane/combustible gas
     mq2_sensor     = DigitalInputDevice(22)  
-    bin_sensor     = DistanceSensor(echo=24, trigger=23, max_distance=0.5, threshold_distance=0.05)
-    
+    bin_sensor = DigitalInputDevice(23, pull_up=False)
+
     hardware_enabled = True
     print("[IoT] Hardware initialized for Pi 5! (MQ-2 Active, Fan Running)")
 except Exception as e:
@@ -340,7 +340,7 @@ def scan():
     spoilage_prob = (100 - result["confidence"]) if condition in ["ripe", "unripe"] else result["confidence"]
 
     if hardware_enabled:
-        bin_is_full = bin_sensor.distance < 0.10
+        bin_is_full = bin_sensor.is_active
         
         if bin_is_full:
             print("[IoT] WARNING: Disposal Bin is FULL!")
