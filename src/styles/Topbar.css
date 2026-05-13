@@ -1,0 +1,55 @@
+/* ── TOPBAR ───────────────────────────────────────────────────────────────── */
+.topbar {
+  height: 44px; flex-shrink: 0;
+  background: rgba(11,31,13,.96);
+  border-bottom: 1px solid rgba(255,255,255,.05);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 16px;
+}
+
+.tb-logo  { display: flex; align-items: center; gap: 7px; }
+.tb-logo svg { width: 22px; height: 22px; }
+
+.tb-title {
+  font-family: 'Cinzel', serif;
+  font-size: 13px; font-weight: 700;
+  color: #7ee84a; letter-spacing: 2px;
+}
+
+.tb-right {
+  font-size: 11px;
+  color: rgba(255,255,255,.3);
+  letter-spacing: .5px;
+}
+
+.tb-hist-btn {
+  display: flex; align-items: center; gap: 5px;
+  padding: 5px 10px; border-radius: 8px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: transparent; color: rgba(255,255,255,.55);
+  font-family: 'Nunito', sans-serif;
+  font-size: 12px; font-weight: 600;
+  cursor: pointer; transition: background .15s;
+}
+.tb-hist-btn:active    { background: rgba(255,255,255,.08); }
+.tb-hist-btn--dark     { border-color: rgba(255,255,255,.18); color: rgba(255,255,255,.65); }
+
+/* Shared buttons used across screens */
+.btn-primary {
+  flex: 1; padding: 14px;
+  background: #5cb83a; color: #fff; border: none;
+  border-radius: 12px; font-family: 'Nunito', sans-serif;
+  font-size: 15px; font-weight: 700; cursor: pointer;
+  box-shadow: 0 4px 14px rgba(92,184,58,.35); transition: transform .1s;
+}
+.btn-primary:active { transform: scale(.99); }
+
+.btn-secondary {
+  padding: 14px 20px;
+  background: transparent; color: rgba(255,255,255,.4);
+  border: 1.5px solid rgba(255,255,255,.1);
+  border-radius: 12px; font-family: 'Nunito', sans-serif;
+  font-size: 14px; font-weight: 600;
+  cursor: pointer; transition: background .2s;
+}
+.btn-secondary:active { background: rgba(255,255,255,.05); }

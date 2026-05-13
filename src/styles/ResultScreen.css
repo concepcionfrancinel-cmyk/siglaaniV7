@@ -1,0 +1,202 @@
+/* ── RESULT SCREEN ────────────────────────────────────────────────────────── */
+.result-screen  { background: #f4efe7; }
+
+.result-header  {
+  height: 44px; flex-shrink: 0; background: #0b1f0d;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 16px; border-bottom: 1px solid rgba(255,255,255,.05);
+}
+.header-logo      { display: flex; align-items: center; gap: 7px; }
+.header-logo-text { font-family:'Cinzel',serif; font-size:13px; font-weight:700; color:#7ee84a; letter-spacing:2px; }
+
+/* Badges */
+.result-badge   { padding:5px 14px; border-radius:20px; font-size:12px; font-weight:700; white-space:nowrap; }
+.badge-ripe     { background:#d4edda; color:#1a6630; }
+.badge-overripe { background:#fff3cd; color:#856404; }
+.badge-unripe   { background:#e2f0fb; color:#0c5073; }
+.badge-rotten   { background:#f8d7da; color:#721c24; }
+
+/* Body layout */
+.result-body { flex:1; display:flex; overflow:hidden; }
+
+/* ── Left panel — photo ── */
+.res-left {
+  width: 200px; flex-shrink: 0; background: #0b1f0d;
+  display: flex; align-items: center; justify-content: center;
+  padding: 16px;
+}
+
+/* Wraps the captured image and the XAI toggle / notice */
+.res-image-stack {
+  position: relative;
+  width: 160px; height: 160px;
+}
+
+.res-captured {
+  width: 160px; height: 160px;
+  border-radius: 20px; object-fit: cover;
+  box-shadow: 0 8px 28px rgba(0,0,0,.55);
+  border: 2px solid rgba(126,232,74,.3);
+  display: block;
+  transition: opacity .18s ease;
+}
+
+.result-fruit-img {
+  width: 160px; height: 160px; border-radius: 20px;
+  background: radial-gradient(circle at 38% 34%, #e8654a, #c0392b);
+  position: relative; box-shadow: 0 6px 20px rgba(0,0,0,.3);
+}
+.result-fruit-shine {
+  width: 40px; height: 24px; background: rgba(255,255,255,.22);
+  border-radius: 50%; position: absolute;
+  top: 22px; left: 26px; transform: rotate(-30deg);
+}
+
+/* ── XAI overlay toggle (REQ-34) ── */
+.xai-toggle {
+  position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%);
+  padding: 5px 12px; border-radius: 20px;
+  background: rgba(11,31,13,0.85); color: #7ee84a;
+  border: 1px solid rgba(126,232,74,0.45);
+  font-family: 'Nunito', sans-serif;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: background .15s, transform .1s;
+  white-space: nowrap;
+}
+.xai-toggle:active            { transform: translateX(-50%) scale(.95); }
+.xai-toggle.xai-toggle--active {
+  background: #7ee84a; color: #0b1f0d;
+  border-color: #7ee84a;
+  box-shadow: 0 0 12px rgba(126,232,74,0.45);
+}
+
+/* XAI unavailable badge (REQ-36) */
+.xai-unavailable {
+  position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 4px;
+  padding: 4px 9px; border-radius: 14px;
+  background: rgba(11,31,13,0.85); color: rgba(255,255,255,0.55);
+  border: 1px solid rgba(255,255,255,0.15);
+  font-family: 'Nunito', sans-serif;
+  font-size: 10px; font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ── Right panel ── */
+.res-right {
+  flex: 1; padding: 16px 20px;
+  display: flex; flex-direction: column; gap: 12px;
+  overflow-y: auto;
+}
+
+.res-name-row {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 10px;
+}
+.result-fruit-name { font-size: 30px; font-weight: 800; color: #1a2e1a; line-height: 1; }
+.result-fruit-sci  { font-size: 12px; color: #aaa; font-style: italic; margin-top: 3px; }
+
+/* ── Star / Likert rating ── */
+.star-rating-wrap { display: flex; flex-direction: column; gap: 4px; }
+.star-row         { display: flex; gap: 4px; align-items: center; }
+.star-label       { font-size: 13px; font-weight: 800; letter-spacing: 0.5px; margin-top: 2px; }
+
+/* ── Suggestion box ── */
+.res-suggestion {
+  background: #eaf6e2; border-radius: 12px;
+  padding: 11px 14px; border: 1px solid rgba(76,160,50,.15);
+  flex-shrink: 0;
+}
+.res-suggestion-label {
+  font-size: 10px; text-transform: uppercase;
+  letter-spacing: 1px; color: #6aab48; margin-bottom: 5px;
+}
+.res-suggestion-text { font-size: 12px; color: #2a5a1a; line-height: 1.55; }
+
+/* ── XAI explanation panel (REQ-35) ── */
+.res-xai-explain {
+  background: linear-gradient(135deg, #0b1f0d 0%, #143a17 100%);
+  border-radius: 12px;
+  padding: 12px 14px;
+  border: 1px solid rgba(126,232,74,.35);
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(11,31,13,.18);
+}
+.res-xai-label {
+  font-size: 10px; text-transform: uppercase;
+  letter-spacing: 1.5px; color: #7ee84a;
+  margin-bottom: 6px; font-weight: 700;
+  display: flex; align-items: center; gap: 5px;
+}
+.res-xai-label::before {
+  content: ""; display: inline-block;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #7ee84a; box-shadow: 0 0 6px #7ee84a;
+}
+.res-xai-text {
+  font-size: 12px; color: rgba(255,255,255,.88); line-height: 1.55;
+}
+.res-xai-meta {
+  font-size: 10px; color: rgba(126,232,74,.55);
+  margin-top: 6px; font-weight: 600; letter-spacing: 0.3px;
+}
+
+/* ── Meta row (time, ID, confidence) ── */
+.res-meta-row { display: flex; gap: 8px; flex-shrink: 0; }
+.res-meta-cell {
+  flex: 1; background: #fff; border-radius: 10px;
+  padding: 8px 12px; border: 1px solid rgba(0,0,0,.05);
+}
+.res-meta-label { font-size: 10px; color: #bbb; margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.5px; }
+.res-meta-val   { font-size: 14px; font-weight: 700; color: #333; }
+
+/* ── Footer buttons ── */
+.result-footer  { display:flex; gap:8px; flex-shrink:0; margin-top: auto; }
+.scan-again-btn {
+  flex:1; padding:13px;
+  background:#5cb83a; color:#fff; border:none;
+  border-radius:11px; font-family:'Nunito',sans-serif;
+  font-size:14px; font-weight:700; cursor:pointer;
+  box-shadow:0 3px 14px rgba(92,184,58,.3); transition:transform .1s;
+}
+.scan-again-btn:active { transform:scale(.98); }
+.history-btn {
+  padding:13px 14px;
+  background:transparent; color:#666;
+  border:1.5px solid rgba(0,0,0,.1);
+  border-radius:11px; font-family:'Nunito',sans-serif;
+  font-size:13px; font-weight:600; cursor:pointer; transition:background .2s;
+}
+.history-btn:active { background:rgba(0,0,0,.04); }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   REQ-8: Lighting status indicator
+   These styles are for the LightingIndicator component, mounted inside the
+   .scan-viewfinder on ScanScreen. Kept here so the ResultScreen.css import
+   chain pulls them in — alternatively, move to ScanScreen.css.
+   ───────────────────────────────────────────────────────────────────────── */
+.lighting-indicator {
+  position: absolute; top: 14px; left: 50%; transform: translateX(-50%);
+  z-index: 6;
+  display: flex; align-items: center; gap: 7px;
+  padding: 5px 14px; border-radius: 20px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 11px; font-weight: 700;
+  white-space: nowrap;
+  backdrop-filter: blur(6px);
+  border: 1px solid;
+  transition: background .25s, color .25s, border-color .25s;
+}
+.lighting-indicator .lite-dot  { font-size: 10px; line-height: 1; }
+.lighting-indicator .lite-luma { font-size: 9px; opacity: .55; font-weight: 600; }
+
+.lite-checking { background: rgba(0,0,0,.5);     color: rgba(255,255,255,.6); border-color: rgba(255,255,255,.15); }
+.lite-ok       { background: rgba(11,31,13,.7);  color: #7ee84a; border-color: rgba(126,232,74,.4); }
+.lite-dark     { background: rgba(50,30,10,.78); color: #f9a825; border-color: rgba(249,168,37,.45); }
+.lite-bright   { background: rgba(60,30,30,.78); color: #ff8b6b; border-color: rgba(255,139,107,.45); }
+
+.lite-ok     .lite-dot { animation: blink 1.5s ease-in-out infinite; }
+.lite-dark   .lite-dot,
+.lite-bright .lite-dot { animation: blink 0.55s ease-in-out infinite; }

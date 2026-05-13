@@ -1,0 +1,121 @@
+/* ── SCAN SCREEN ──────────────────────────────────────────────────────────── */
+.scan-screen { background: #0b1f0d; }
+.scan-wrap   { flex: 1; display: flex; }
+
+.scan-viewfinder {
+  flex: 1; margin: 10px 0 10px 10px;
+  border-radius: 14px; overflow: hidden;
+  position: relative; background: #0d1a0e;
+  border: 2px solid rgba(92,184,58,.25);
+}
+
+.cam-fallback { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+
+.cam-err-badge {
+  position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
+  background: rgba(0,0,0,.7); color: #f9a825;
+  font-size: 11px; font-weight: 600;
+  padding: 5px 12px; border-radius: 20px;
+  display: flex; align-items: center; gap: 5px; white-space: nowrap;
+}
+
+/* Viewfinder corner accents */
+.vf-corner { position: absolute; width: 36px; height: 36px; border-color: #7ee84a; border-style: solid; z-index: 2; }
+.vf-corner.tl { top:12px;    left:12px;  border-width: 3px 0 0 3px; border-radius: 4px 0 0 0; }
+.vf-corner.tr { top:12px;    right:12px; border-width: 3px 3px 0 0; border-radius: 0 4px 0 0; }
+.vf-corner.bl { bottom:12px; left:12px;  border-width: 0 0 3px 3px; border-radius: 0 0 0 4px; }
+.vf-corner.br { bottom:12px; right:12px; border-width: 0 3px 3px 0; border-radius: 0 0 4px 0; }
+
+/* Side panel */
+.scan-panel {
+  width: 210px; flex-shrink: 0;
+  padding: 14px 16px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.scan-info-title { font-size: 15px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+.scan-info-body  { font-size: 12px; color: rgba(255,255,255,.4); line-height: 1.5; margin-bottom: 10px; }
+
+.scan-tip       { background: rgba(92,184,58,.08); border: 1px solid rgba(92,184,58,.15); border-radius: 10px; padding: 10px 12px; }
+.scan-tip-label { font-size: 10px; color: #7ee84a; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 3px; }
+.scan-tip-text  { font-size: 11px; color: rgba(255,255,255,.5); line-height: 1.4; }
+
+.scan-status { font-size: 11px; color: rgba(255,255,255,.3); text-align: center; margin-bottom: 8px; }
+
+.scan-btn {
+  width: 100%; padding: 18px;
+  background: #5cb83a; color: #fff; border: none;
+  border-radius: 12px; font-family: 'Nunito', sans-serif;
+  font-size: 17px; font-weight: 800; cursor: pointer;
+  box-shadow: 0 5px 20px rgba(92,184,58,.4); transition: transform .1s;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+}
+.scan-btn:active { transform: scale(.98); }
+
+/* Loading overlay */
+.scan-loading-overlay {
+  position: absolute; inset: 0; z-index: 10;
+  background: rgba(11,31,13,0.82); border-radius: 14px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 12px;
+}
+.scan-loading-overlay span { font-size: 13px; color: rgba(255,255,255,0.55); font-weight: 600; }
+.scan-loading-spinner {
+  width: 28px; height: 28px;
+  border: 3px solid rgba(255,255,255,0.08);
+  border-top-color: #7ee84a; border-radius: 50%;
+  animation: spin .75s linear infinite;
+}
+
+/* Capture flash */
+.scan-capture-flash {
+  position: absolute; inset: 0; z-index: 20;
+  background: white; border-radius: 14px;
+  animation: flash 0.6s ease-out forwards;
+}
+@keyframes flash { 0% { opacity:1; } 100% { opacity:0; } }
+
+/* Countdown ring */
+.scan-countdown-wrap {
+  position: absolute; bottom: 14px; right: 14px; z-index: 5;
+  filter: drop-shadow(0 0 8px rgba(126,232,74,0.5));
+}
+
+/* Detected pill */
+.scan-detected-pill {
+  position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
+  z-index: 5; background: rgba(11,31,13,0.85);
+  border: 1px solid rgba(126,232,74,0.4); color: #7ee84a;
+  font-size: 12px; font-weight: 700;
+  padding: 6px 14px; border-radius: 20px;
+  display: flex; align-items: center; gap: 7px;
+  white-space: nowrap; backdrop-filter: blur(4px);
+}
+.scan-detected-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #7ee84a; animation: blink 1s ease-in-out infinite;
+}
+
+/* Aim guide */
+.scan-aim-guide {
+  position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
+  z-index: 5; background: rgba(0,0,0,0.5);
+  color: rgba(255,255,255,0.45);
+  font-size: 12px; font-weight: 600;
+  padding: 5px 14px; border-radius: 20px; white-space: nowrap;
+}
+
+/* Confidence meter */
+.scan-conf-meter {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 10px; padding: 10px 12px;
+}
+
+/* Status row */
+.scan-status-row { display: flex; align-items: center; gap: 7px; padding-top: 4px; }
+.scan-status-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: rgba(255,255,255,0.2); flex-shrink: 0;
+}
+.scan-status-dot.active { background: #7ee84a; animation: blink 1s ease-in-out infinite; }
+.scan-status { font-size: 11px; color: rgba(255,255,255,0.35); }

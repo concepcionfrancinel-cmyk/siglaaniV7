@@ -1,0 +1,47 @@
+/* ── GLOBAL BASE — 800×480 Landscape ─────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Nunito:wght@400;500;600;700;800&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #111d11;
+  display: flex; align-items: center; justify-content: center;
+  width: 100vw; height: 100vh; overflow: hidden;
+  font-family: 'Nunito', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.app-root {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.app-shell {
+  width: 800px; height: 480px;
+  background: #0b1f0d; overflow: hidden;
+  position: relative; display: flex; flex-direction: column; flex-shrink: 0;
+}
+
+@media (min-width: 860px) and (min-height: 520px) {
+  .app-shell {
+    border-radius: 16px;
+    border: 2px solid #1e3d20;
+    box-shadow: 0 24px 64px rgba(0,0,0,.65);
+  }
+}
+
+/* ── Screen base ── */
+.screen {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  animation: fsl .3s ease;
+}
+@keyframes fsl {
+  from { opacity: 0; transform: translateX(14px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ── Shared animations ── */
+@keyframes blink { 0%,100% { opacity:1; } 50% { opacity:.3; } }
+@keyframes spin  { to { transform: rotate(360deg); } }

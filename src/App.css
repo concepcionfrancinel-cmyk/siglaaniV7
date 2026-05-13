@@ -1,0 +1,9 @@
+/* ── App.css — imports all component styles ──────────────────────────────── */
+@import './styles/global.css';
+@import './styles/Topbar.css';
+@import './styles/SplashScreen.css';
+@import './styles/InstructionsScreen.css';
+@import './styles/ScanScreen.css';
+@import './styles/ProcessingScreen.css';
+@import './styles/ResultScreen.css';
+@import './styles/HistoryScreen.css';

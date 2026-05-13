@@ -1,0 +1,43 @@
+/* ── PROCESSING SCREEN ────────────────────────────────────────────────────── */
+.processing-screen { background: #0d2210; }
+.proc-wrap {flex: 1; display: flex; align-items: stretch; }
+
+.proc-scanner {
+  width: 230px; flex-shrink: 0;
+  margin: 10px 0 10px 10px; border-radius: 14px;
+  background: #111a12; border: 1.5px solid rgba(92,184,58,.2);
+  position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.proc-scanline {
+  position: absolute; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, transparent, #7ee84a, transparent);
+  animation: sl 1.8s ease-in-out infinite; z-index: 2;
+}
+@keyframes sl {
+  0%   { top: 0%;   opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+.proc-info  { flex: 1; padding: 20px 24px; display: flex; flex-direction: column; justify-content: center; }
+.proc-label { font-size: 26px; font-weight: 800; color: #fff; margin-bottom: 4px; }
+.proc-sub   { font-size: 13px; color: rgba(255,255,255,.38); margin-bottom: 20px; min-height: 20px; }
+
+.proc-bar-wrap { width: 100%; height: 7px; background: rgba(255,255,255,.08); border-radius: 4px; overflow: hidden; margin-bottom: 5px; }
+.proc-bar-fill { height: 100%; background: #7ee84a; border-radius: 4px; transition: width .25s ease; }
+.proc-pct      { font-size: 12px; color: #7ee84a; font-weight: 700; margin-bottom: 18px; }
+
+.proc-steps     { display: flex; flex-direction: column; gap: 10px; }
+.proc-step-item { display: flex; align-items: center; gap: 9px; font-size: 12px; color: rgba(255,255,255,.28); transition: color .3s; }
+.proc-step-item.done   { color: rgba(255,255,255,.72); }
+.proc-step-item.active { color: #fff; }
+.proc-step-dot  { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,.12); flex-shrink: 0; transition: background .3s; }
+.proc-step-item.done .proc-step-dot   { background: #7ee84a; }
+.proc-step-item.active .proc-step-dot { background: #7ee84a; animation: blink 1s infinite; }
+
+/* Shared fruit ball placeholder */
+.fruit-placeholder { border-radius: 50%; background: radial-gradient(circle at 38% 34%, #e8654a, #c0392b); position: relative; }
+.fruit-shine { border-radius: 50%; background: rgba(255,255,255,.2); position: absolute; top:16%; left:20%; width:30%; height:17%; transform: rotate(-30deg); }
